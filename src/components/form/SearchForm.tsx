@@ -3,6 +3,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { type FormEvent } from 'react';
 import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 type SearchFormProps = {
   userName: string;
@@ -10,12 +11,15 @@ type SearchFormProps = {
 };
 
 const SearchForm = ({ userName, setUserName }: SearchFormProps) => {
+  const { toast } = useToast();
   const [text, setText] = useState(userName);
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (text === '') {
-      console.log('Please enter a username');
+      toast({
+        description: 'Please provide a valid username',
+      });
       return;
     }
     setUserName(text);
