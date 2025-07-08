@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import { GET_USER } from '@/queries';
 import { UserData } from '@/types';
 import UserCard from './userCard';
+import StatsContainer from './StatsContainer';
 
 type UserProfileProps = {
   userName: string;
@@ -30,6 +31,12 @@ const UserProfile = ({ userName }: UserProfileProps) => {
   return (
     <div>
       <UserCard avatarUrl={avatarUrl} name={name} bio={bio} url={url} />
+      <StatsContainer
+        totalRepos={repositories.totalCount}
+        followers={followers.totalCount}
+        following={following.totalCount}
+        gists={gists.totalCount}
+      />
     </div>
   );
 };
