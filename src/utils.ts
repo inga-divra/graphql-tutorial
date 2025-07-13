@@ -24,3 +24,25 @@ export const calculateMostForkedRepos = (
         .slice(0, 5);
     return forkedRepos;
 };
+
+/**
+ * Calculates the top 5 most starred repositories
+ * @param repositories Array of repository data from GitHub API
+ * @returns Array of objects containing repository names and their star counts
+ * Example return: [{ repo: "tensorflow", stars: 5000 }, { repo: "linux", stars: 4000 }]
+ */
+
+export const calculateMostStarredRepos = (
+    repositories: Repository[]
+): { repo: string; stars: number }[] => {
+    if (repositories.length === 0) {
+        return [];
+    }
+    const starredRepos = repositories
+        .map((repo) => {
+            return { repo: repo.name, stars: repo.stargazerCount };
+        })
+        .sort((a, b) => b.stars - a.stars)
+        .slice(0, 5);
+    return starredRepos;
+};
