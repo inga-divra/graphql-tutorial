@@ -1,6 +1,6 @@
 # Project Overview
 
-This project is part of a React course and focuses on building a web app using **GraphQL** for fast and flexible data fetching. I learned how to use **Apollo Client** to handle GraphQL queries and caching, which made the app faster and easier to work with.
+This project is part of a React course by John Smilga and focuses on building a web app using GraphQL for fast and flexible data fetching. I learned how to use Apollo Client to handle GraphQL queries and caching, which made the app faster and easier to work with.
 
 ## What I Learned
 
